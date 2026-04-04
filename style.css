@@ -363,106 +363,90 @@ body::after {
 
 @media (max-width: 768px) {
 
-    /* ===== HERO ===== */
-    .hero {
-        text-align: center;
-        padding-top: 40px;
-    }
+  /* контейнер */
+  .cards {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
 
-    .hero h1 {
-        font-size: 32px;
-        line-height: 1.2;
-    }
+  /* карточки */
+  .card {
+    position: relative;
+    width: 220px;
+    height: 300px;
+  }
 
-    .hero p {
-        font-size: 16px;
-        padding: 0 10px;
-    }
+  .left,
+  .right {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
 
-    .hero-buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-    }
+  /* круг убираем или уменьшаем */
+  .cards::before {
+    width: 250px;
+    height: 250px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 
-    .hero button {
-        width: 100%;
-        max-width: 280px;
-    }
+  /* блок с текстом */
+  .about {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-    /* ===== СТАТИСТИКА ===== */
-    .stats {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        text-align: center;
-        margin-top: 40px;
-    }
+  /* заголовок */
+  .about h1 {
+    font-size: 36px;
+    line-height: 1.2;
+  }
 
-    .stats div {
-        font-size: 26px;
-        font-weight: 700;
-    }
+  /* подзаголовок */
+  .about p {
+    font-size: 16px;
+    max-width: 90%;
+  }
 
-    .stats span {
-        display: block;
-        font-size: 13px;
-        margin-top: 5px;
-    }
+  /* список */
+  .about ul {
+    text-align: left;
+    padding-left: 20px;
+  }
 
-    /* ===== БЛОК С КАРТОЧКАМИ ===== */
-    .cards {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-        margin-top: 60px;
-        position: relative;
-    }
+  /* главный экран */
+  .hero h1 {
+    font-size: 40px;
+  }
 
-    /* КРУГ */
-    .circle {
-        width: 250px;
-        height: 250px;
-        filter: blur(60px);
-    }
+  .hero p {
+    font-size: 16px;
+    padding: 0 15px;
+  }
 
-    /* КАРТОЧКИ */
-    .card {
-        position: relative !important;
-        left: auto !important;
-        right: auto !important;
-        top: auto !important;
+  /* кнопки */
+  .hero-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
 
-        width: 90%;
-        max-width: 320px;
-        height: 260px;
-    }
+  /* статистика */
+  .stats {
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 20px;
+  }
 
-    /* КАРТИНКА */
-    .card img {
-        position: absolute;
-        height: 75%;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    /* ТЕКСТ */
-    .card p {
-        position: absolute;
-        top: 15px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 20px;
-        font-weight: 600;
-    }
-
-    /* ===== БОЛЬШИЕ ЗАГОЛОВКИ ===== */
-    h2 {
-        font-size: 32px;
-        line-height: 1.2;
-    }
+  .stats div {
+    text-align: center;
+  }
 
 }
