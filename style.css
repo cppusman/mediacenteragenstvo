@@ -363,90 +363,125 @@ body::after {
 
 @media (max-width: 768px) {
 
-  /* контейнер */
-  .cards {
-    width: 100%;
-    height: auto;
-    display: flex;
+  /* УБИРАЕМ ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero p {
+    font-size: 16px;
+    padding: 0 20px;
+  }
+
+  .hero-buttons {
     flex-direction: column;
-    align-items: center;
-    gap: 30px;
+    gap: 12px;
   }
 
-  /* карточки */
-  .card {
-    position: relative;
-    width: 220px;
-    height: 300px;
+  /* ===== СТАТИСТИКА ===== */
+  .stats {
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px 20px;
   }
 
-  .left,
-  .right {
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
+  .stats div {
+    text-align: center;
   }
 
-  /* круг убираем или уменьшаем */
-  .cards::before {
-    width: 250px;
-    height: 250px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
+  /* ===== БЛОК С КАРТОЧКАМИ ===== */
 
-  /* блок с текстом */
   .about {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 
-  /* заголовок */
+  /* текст */
   .about h1 {
-    font-size: 36px;
-    line-height: 1.2;
+    font-size: 34px;
   }
 
-  /* подзаголовок */
   .about p {
-    font-size: 16px;
+    font-size: 15px;
     max-width: 90%;
   }
 
-  /* список */
   .about ul {
     text-align: left;
     padding-left: 20px;
   }
 
-  /* главный экран */
-  .hero h1 {
-    font-size: 40px;
+  /* ===== ГЛАВНОЕ: КАРТОЧКИ + КРУГ ===== */
+
+  .cards {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-top: 40px;
   }
 
-  .hero p {
+  /* КРУГ ПО ЦЕНТРУ */
+  .cards::before {
+    content: "";
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+
+    border: 2px solid rgba(0,150,255,0.6);
+
+    box-shadow:
+      0 0 20px rgba(0,150,255,0.4),
+      0 0 60px rgba(0,150,255,0.2);
+
+    z-index: 0;
+  }
+
+  /* ОБЩИЕ КАРТОЧКИ */
+  .card {
+    position: absolute;
+
+    width: 160px;
+    height: 220px;
+
+    z-index: 2;
+  }
+
+  /* ЛЕВАЯ */
+  .left {
+    left: 10%;
+    top: 0;
+  }
+
+  /* ПРАВАЯ */
+  .right {
+    right: 10%;
+    bottom: 0;
+  }
+
+  /* КАРТИНКИ */
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* ТЕКСТ В КАРТОЧКЕ */
+  .card p {
     font-size: 16px;
-    padding: 0 15px;
-  }
-
-  /* кнопки */
-  .hero-buttons {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  /* статистика */
-  .stats {
-    flex-direction: column;
-    gap: 20px;
-    padding: 30px 20px;
-  }
-
-  .stats div {
-    text-align: center;
+    margin-top: 10px;
   }
 
 }
