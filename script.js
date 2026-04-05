@@ -1,4 +1,3 @@
-// плавное появление карточек
 const cards = document.querySelectorAll(".card");
 
 window.addEventListener("scroll", () => {
@@ -25,7 +24,6 @@ function showOnScroll() {
 
 window.addEventListener('scroll', showOnScroll);
 
-// 👇 ДОБАВЬ ЭТО
 window.addEventListener('load', () => {
     showOnScroll();
 });

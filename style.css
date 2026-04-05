@@ -15,7 +15,6 @@ body {
   overflow-x: hidden;
 }
 
-/* HEADER */
 
 .header {
   position: fixed;
@@ -46,7 +45,7 @@ body {
   text-decoration: none;
   padding: 8px 18px;
   border-radius: 20px;
-  border: 1px solid transparent; /* фикс */
+  border: 1px solid transparent; 
   transition: .3s;
 }
 
@@ -56,7 +55,6 @@ body {
   box-shadow: 0 0 10px #2a7fff;
 }
 
-/* BUTTONS */
 
 .btn {
   padding: 10px 25px;
@@ -70,7 +68,6 @@ body {
   color: white;
 }
 
-/* HERO */
 
 .hero {
     text-align: center;
@@ -79,8 +76,8 @@ body {
     align-items: center;
     justify-content: center;
 
-    min-height: 100vh;      /* ВОТ ЭТО КРИТИЧНО */
-    padding: 120px 20px;    /* ВЕРХ/НИЗ */
+    min-height: 100vh;      
+    padding: 120px 20px;    
 }
 
 .hero h1 {
@@ -102,7 +99,6 @@ body {
   margin-top: 40px;
 }
 
-/* neon buttons */
 
 .neon {
   background: linear-gradient(45deg, #2a7fff, #4eaaff);
@@ -124,7 +120,6 @@ body {
   box-shadow: 0 0 20px #2a7fff;
 }
 
-/* STATS */
 
 .stats {
   margin: 80px auto;
@@ -149,7 +144,6 @@ body {
   font-weight: 700;
 }
 
-/* ABOUT */
 
 .about {
   display: flex;
@@ -182,7 +176,6 @@ body {
   margin: 10px 0;
 }
 
-/* CARDS */
 
 .cards {
   position: relative;
@@ -190,7 +183,6 @@ body {
     height: 420px;
 }
 
-/* сами карточки */
 .card {
     position: absolute;
     width: 240px;
@@ -218,9 +210,8 @@ body {
     transition: all 0.8s ease;
 }
 
-/* задержка после круга */
 .cards.show .card.left {
-    transition-delay: 1s;   /* после круга */
+    transition-delay: 1s;   
 }
 
 
@@ -230,12 +221,12 @@ body {
 
 .left {
     left: 20px;
-    top: -20px; /* выше */
+    top: -20px; 
 }
 
 .right {
     right: 20px;
-    top: 120px; /* ниже */
+    top: 120px; 
 }
 
 
@@ -251,12 +242,8 @@ body {
 
     border-radius: 50%;
 
-    /* только линия */
     border: 2px solid rgba(0,150,255,0.7);
 
-    /* ❗ делаем разрыв сверху и снизу */
-    
-    /* неоновое свечение */
     box-shadow:
         0 0 20px rgba(0,150,255,0.5),
         0 0 50px rgba(0,150,255,0.3);
@@ -279,7 +266,6 @@ inset 0 0 25px rgba(0,150,255,0.35),
     transform: scale(1);
 }
 
-/* ГЕОМЕТРИЯ (3 КРУГА) */
 
 body::before,
 body::after {
@@ -331,7 +317,7 @@ body::after {
 
 .card img {
     position: absolute;
-    height: 80%; /* уменьшаем */
+    height: 80%; 
     width: auto;
     bottom: 0;
     left: 50%;
@@ -346,8 +332,8 @@ body::after {
     z-index: 2;
 
     color: white;
-    font-size: 22px;   /* ← увеличь как нужно */
-    font-weight: 600;  /* ← чтобы выглядел как в макете */
+    font-size: 22px;   
+    font-weight: 600;  
 }
 
 .fade-in {
@@ -361,127 +347,3 @@ body::after {
     transform: translateY(0);
 }
 
-@media (max-width: 768px) {
-
-  /* УБИРАЕМ ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ */
-  body {
-    overflow-x: hidden;
-  }
-
-  /* ===== HERO ===== */
-  .hero h1 {
-    font-size: 42px;
-  }
-
-  .hero p {
-    font-size: 16px;
-    padding: 0 20px;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  /* ===== СТАТИСТИКА ===== */
-  .stats {
-    flex-direction: column;
-    gap: 25px;
-    padding: 30px 20px;
-  }
-
-  .stats div {
-    text-align: center;
-  }
-
-  /* ===== БЛОК С КАРТОЧКАМИ ===== */
-
-  .about {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  /* текст */
-  .about h1 {
-    font-size: 34px;
-  }
-
-  .about p {
-    font-size: 15px;
-    max-width: 90%;
-  }
-
-  .about ul {
-    text-align: left;
-    padding-left: 20px;
-  }
-
-  /* ===== ГЛАВНОЕ: КАРТОЧКИ + КРУГ ===== */
-
-  .cards {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    margin-top: 40px;
-  }
-
-  /* КРУГ ПО ЦЕНТРУ */
-  .cards::before {
-    content: "";
-    position: absolute;
-
-    width: 260px;
-    height: 260px;
-
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-
-    border: 2px solid rgba(0,150,255,0.6);
-
-    box-shadow:
-      0 0 20px rgba(0,150,255,0.4),
-      0 0 60px rgba(0,150,255,0.2);
-
-    z-index: 0;
-  }
-
-  /* ОБЩИЕ КАРТОЧКИ */
-  .card {
-    position: absolute;
-
-    width: 160px;
-    height: 220px;
-
-    z-index: 2;
-  }
-
-  /* ЛЕВАЯ */
-  .left {
-    left: 10%;
-    top: 0;
-  }
-
-  /* ПРАВАЯ */
-  .right {
-    right: 10%;
-    bottom: 0;
-  }
-
-  /* КАРТИНКИ */
-  .card img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  /* ТЕКСТ В КАРТОЧКЕ */
-  .card p {
-    font-size: 16px;
-    margin-top: 10px;
-  }
-
-}
