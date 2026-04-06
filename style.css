@@ -365,3 +365,106 @@ body::after {
   backdrop-filter: blur(20px);
   padding: 20px;
 }
+
+@media (max-width: 768px) {
+
+  /* показываем бургер */
+  .burger {
+    display: block;
+  }
+
+  /* скрываем обычное меню */
+  .menu {
+    display: none;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 100px 20px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero p {
+    font-size: 18px;
+    color: #ccc;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* ===== СТАТИСТИКА (СТЕКЛО) ===== */
+  .stats {
+    margin: 80px auto;
+    width: 90%;
+    padding: 30px;
+    border-radius: 25px;
+
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  /* ===== ABOUT ===== */
+  .about {
+    flex-direction: column;
+    padding: 80px 20px;
+    gap: 50px;
+  }
+
+  .text h2 {
+    font-size: 32px;
+  }
+
+  /* ===== КАРТОЧКИ ===== */
+  .cards {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .card {
+    position: relative;
+    width: 80%;
+    max-width: 280px;
+    height: 300px;
+  }
+
+  .left,
+  .right {
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  /* ===== КРУГ ===== */
+  .cards::before {
+    content: "";
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+    border: 2px solid rgba(0,150,255,0.7);
+
+    box-shadow:
+      0 0 20px rgba(0,150,255,0.6),
+      0 0 40px rgba(0,150,255,0.4);
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
