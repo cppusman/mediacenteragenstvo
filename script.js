@@ -28,13 +28,28 @@ window.addEventListener('load', () => {
     showOnScroll();
 });
 
-// script.js (в конец)
-
-const burgerMenu = document.getElementById('burger-menu');
+const burger = document.getElementById('burger-menu');
 const nav = document.querySelector('.nav');
+const menuLinks = document.querySelectorAll('.menu a');
 
-if (burgerMenu) {
-    burgerMenu.addEventListener('click', () => {
-        nav.classList.toggle('active'); // Вешаем/снимаем класс 'active' на .nav
+if (burger) {
+    burger.addEventListener('click', () => {
+        // Переключаем класс active: это и открывает меню, и превращает полоски в крестик
+        nav.classList.toggle('active');
+        
+        // Блокируем скролл страницы, когда меню открыто (чтобы "фигня" не дергалась)
+        if (nav.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
     });
 }
+
+// Закрываем меню при клике на любую ссылку
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        nav.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+});
