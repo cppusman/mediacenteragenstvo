@@ -347,126 +347,11 @@ body::after {
     transform: translateY(0);
 }
 
-@media (max-width: 768px) {
-
-  /* ===== HEADER ===== */
-  .nav {
-    padding: 10px 20px;
-    gap: 20px;
-  }
-
-  .menu {
-    display: none;
-  }
-
-  .btn.join {
-    padding: 8px 16px;
-    font-size: 14px;
-  }
-
-  /* ===== HERO ===== */
-  .hero {
-    padding: 100px 20px;
-  }
-
-  .hero h1 {
-    font-size: 42px;
-  }
-
-  .hero p {
-    font-size: 16px;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  /* ===== STATS ===== */
-  .stats {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-  }
-
-  /* ===== ABOUT ===== */
-  .about {
-    flex-direction: column;
-    padding: 80px 20px;
-    gap: 50px;
-  }
-
-  .text h2 {
-    font-size: 32px;
-  }
-
-  /* ===== CARDS ===== */
-  .cards {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-  }
-
-  .card {
-    position: relative;
-    width: 80%;
-    max-width: 280px;
-    height: 300px;
-  }
-
-  .left,
-  .right {
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-
-  /* убираем круг */
-  .cards::before {
-    display: none;
-  }
-
-  .burger {
-    display: block;
-  }
-
-  .menu {
-    display: none;
-  }
-
-
-}
-
-@media (max-width: 480px) {
-
-  .hero h1 {
-    font-size: 32px;
-  }
-
-  .text h2 {
-    font-size: 26px;
-  }
-
-  .hero p {
-    font-size: 14px;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .stats div {
-    font-size: 24px;
-  }
-}
-
 .burger {
   display: none;
-  font-size: 24px;
+  font-size: 26px;
   cursor: pointer;
+  color: white;
 }
 
 .menu.active {
@@ -474,11 +359,9 @@ body::after {
   flex-direction: column;
   position: absolute;
   top: 70px;
-  background: rgba(0,0,0,0.9);
-  width: 100%;
   left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.9);
+  backdrop-filter: blur(20px);
   padding: 20px;
 }
-
-
-
