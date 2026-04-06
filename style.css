@@ -431,29 +431,38 @@ body::after {
 
     /* 3. Бургер-меню (закрытие) */
     /* Внутри @media (max-width: 768px) */
-.menu {
-    position: fixed; /* Фиксируем намертво к экрану */
-    top: 0;
-    right: -100%; 
-    width: 100vw;   /* Используем vw (ширина порта просмотра) */
-    height: 100vh;  /* На всю высоту экрана смартфона */
-    background: rgba(0, 0, 0, 0.98); /* Почти непрозрачный черный */
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    
-    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Делаем анимацию плавнее */
-    z-index: 9999; /* Выкручиваем на максимум, чтобы ничего не просвечивало */
-}
+ .menu {
+        position: fixed; /* Фиксируем относительно экрана */
+        top: 0;
+        right: -100%;    /* Прячем за правую границу */
+        width: 100%;     /* Ширина на весь экран */
+        height: 100vh;    /* Высота на весь экран */
+        background-color: #000; /* Чистый черный или rgba(0,0,0,0.95) */
+        
+        /* Центрируем ссылки */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        
+        transition: 0.4s ease;
+        z-index: 9999;   /* Чтобы точно было поверх всего */
+    }
 
-/* Обязательно добавь это, чтобы ссылки не были мелкими */
-.menu a {
-    font-size: 32px !important; /* Увеличиваем шрифт для пальцев */
-    color: white !important;
-    border: none !important; /* Убираем рамки, если они мешают */
+    /* Когда меню открыто (JS добавляет класс active к .nav) */
+    .nav.active .menu {
+        right: 0;        /* Выезжает на экран */
+    }
+
+    /* Стили для ссылок, чтобы они были видны */
+    .menu a {
+        color: #fff !important;
+        font-size: 24px;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+    }
 }
 
     .nav.active .menu {
