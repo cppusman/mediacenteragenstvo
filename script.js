@@ -28,9 +28,13 @@ window.addEventListener('load', () => {
     showOnScroll();
 });
 
-const burger = document.querySelector('.burger');
-const menu = document.querySelector('.menu');
+// script.js (в конец)
 
-burger.addEventListener('click', () => {
-  menu.classList.toggle('active');
-});
+const burgerMenu = document.getElementById('burger-menu');
+const nav = document.querySelector('.nav');
+
+if (burgerMenu) {
+    burgerMenu.addEventListener('click', () => {
+        nav.classList.toggle('active'); // Вешаем/снимаем класс 'active' на .nav
+    });
+}
