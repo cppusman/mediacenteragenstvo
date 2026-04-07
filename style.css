@@ -386,67 +386,140 @@ body::after {
    ================== АДАПТИВ НА ТЕЛЕФОН ==================
    ======================================================== */
 @media (max-width: 768px) {
-    /* 1. Настройка выпадающей плашки */
+    /* ========================================================= */
+    /* 1. Навигация и исправление видимости Бургера             */
+    /* ========================================================= */
+    .nav {
+        justify-content: space-between;
+        width: 100%;
+        padding: 10px 20px;
+    }
+    .logo { margin: 0; font-size: 20px; }
+    
+    /* Скрываем кнопку "Присоединиться" в шапке на мобилке, оставляем только лого и бургер */
+    .nav .btn.join { display: none !important; }
+
+    /* Показываем Бургер и делаем его белым */
+    .burger-menu {
+        display: flex !important; /* Форсируем видимость */
+        flex-direction: column;
+        gap: 5px;
+        z-index: 101; /* Поверх фона шапки */
+    }
+    .burger-menu span {
+        background-color: #fff !important; /* Убедись, что они белые */
+    }
+
+    /* Выпадающая панель навигации (не на весь экран) */
     .menu {
         position: absolute;
-        top: 100%; /* Сразу под шапкой */
-        left: 0;
+        top: 100%; left: 0;
         width: 100%;
-        background: rgba(1, 1, 1, 0.95);
+        background: rgba(0, 0, 0, 0.95);
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 20px 0;
         gap: 20px;
+        padding: 20px 0;
         
         /* Анимация появления */
         visibility: hidden;
         opacity: 0;
-        transform: translateY(-10px);
-        transition: 0.3s ease;
-        z-index: 1000;
+        transform: translateY(-20px);
+        transition: all 0.3s ease;
+        z-index: 100;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-
     .nav.active .menu {
         visibility: visible;
         opacity: 1;
         transform: translateY(0);
     }
+    .menu a { color: #fff !important; font-size: 18px; }
 
-    .menu a {
-        color: #fff !important;
-        font-size: 20px !important;
-        text-decoration: none;
+    /* ========================================================= */
+    /* 2. Вертикальный макет секции About (Requested Layout)    */
+    /* ========================================================= */
+    .about {
+        flex-direction: column !important; /* Складываем всё в столбик: Сверху Текст, ниже Карточки */
+        align-items: center;
+        text-align: center;
+        padding: 60px 20px;
+        gap: 60px; /* Расстояние между текстовым блоком и блоком карточек */
     }
 
-    /* 2. Уменьшаем текст "Мы объединяем..." */
+    /* 2.1. Уменьшаем текст (Пожелание) */
+    .about .text {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
     .about .text h2 {
-        font-size: 26px !important; /* Делаем заголовок меньше */
+        font-size: 28px !important; /* Сделали заголовок меньше */
         line-height: 1.2;
     }
-
-    .about .text p, 
-    .about .text li {
-        font-size: 15px !important; /* Уменьшаем основной текст */
-        line-height: 1.4;
+    .about .text p {
+        font-size: 16px; /* Сделали основной текст меньше */
+        margin-top: 20px;
     }
+    .about .text ul {
+        text-align: left; /* Оставляем список выровненным по левому краю для читаемости */
+        display: inline-block; /* Позволяет центрировать сам список, оставляя текст внутри слева */
+        margin-top: 20px;
+    }
+    .about .text li { font-size: 15px; }
 
-    /* 3. Уменьшаем карточки Блогер/Заказчик */
+    /* ========================================================= */
+    /* 3. Карточки столбиком и Соединяющий Круг                 */
+    /* ========================================================= */
     .cards {
-        gap: 15px;
+        display: flex;
+        flex-direction: column !important; /* Складываем карточки в столбик: Блогер над Заказчиком */
+        align-items: center;
+        width: auto;
+        height: auto;
+        margin: 0;
+        gap: 160px; /* Большой зазор, чтобы круг встал ровно между ними */
+        position: relative; /* Контейнер для относительного позиционирования круга */
     }
 
+    /* Убираем абсолютное позиционирование карточек с десктопа */
     .card {
-        width: 280px !important; 
+        position: static !important;
+        width: 320px !important; /* Задаем компактную ширину */
         height: auto !important;
-        padding: 15px !important;
+        padding: 20px !important;
+        border-radius: 30px !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 2; /* Контент карточки должен быть ПОВЕРХ круга */
     }
-
-    .card p {
-        font-size: 16px !important;
-    }
-
+    .card p { font-size: 18px; margin: 0 0 10px 0; text-align: center; }
+    
+    /* Уменьшаем картинки-иконки внутри */
     .card img {
-        height: 50px !important;
+      height: 80px; width: auto; /* Сделали иконки компактнее */
+        position: static !important;
+        transform: none !important;
+        margin: 0;
+    }
+
+    /* 3.1. Исправленный Соединяющий Круг ( requested position ) */
+    /* Теперь он находится по центру контейнера .cards (который столбиком) и соединяет их vertically */
+    .cards::before {
+        display: block !important;
+        content: "";
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%); /* Идеальное центрирование между верхним Блогером и нижним Заказчиком */
+        width: 320px; /* Размер круга */
+        height: 320px;
+        border: 3px solid #2a7fff;
+        box-shadow: 0 0 50px rgba(42, 127, 255, 0.4);
+        border-radius: 50%;
+        z-index: 1; /* Опускаем за карточки */
+        opacity: 0.8;
     }
 }
