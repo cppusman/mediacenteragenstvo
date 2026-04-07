@@ -1,82 +1,99 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Медиацентр</title>
-<link rel="stylesheet" href="style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Медиацентр — агрегатор заказов для блогеров</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header class="header">
-  <div class="nav">
-    <div class="logo">Logo</div>
-    
-    <div class="burger-menu" id="burger-menu">
-        <span></span>
-        <span></span>
-        <span></span>
+<!-- НЕОНОВЫЕ ГЕОМЕТРИЧЕСКИЕ ПЯТНА -->
+<div class="neon-bg">
+    <div class="neon-blob blob-a"></div>
+    <div class="neon-blob blob-b"></div>
+    <div class="neon-blob blob-c"></div>
+    <div class="neon-blob blob-d"></div>
+</div>
+
+<div class="main-wrapper">
+    <!-- ШАПКА -->
+    <header class="header">
+        <div class="nav glass-card" id="navBar">
+            <div class="burger-menu" id="burgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="logo">Медиацентр</div>
+            <button class="btn join" id="mobileJoinBtn">Присоединиться</button>
+            <div class="menu" id="mainMenu">
+                <a href="#">Главная</a>
+                <a href="#">Проекты</a>
+                <a href="#">Кейсы</a>
+                <a href="#">Цены</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero fade-in">
+        <h1><span>Медиа</span>центр</h1>
+        <p>Агрегатор коммерческих и бартерных заказов со всего рынка<br> ежедневно собираем лучшие предложения и даем доступ участникам</p>
+        <div class="hero-buttons">
+            <button class="btn neon">Получить доступ</button>
+            <button class="btn ghost">Узнать больше</button>
+        </div>
+    </section>
+
+    <!-- СТАТИСТИКА -->
+    <div class="stats glass-card fade-in">
+        <div class="stat-item">
+            <div class="stat-number">4000+</div>
+            <div class="stat-label">Переданных проектов</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Новых проектов в неделю</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">250+</div>
+            <div class="stat-label">Постоянных заказчиков</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">16000+</div>
+            <div class="stat-label">Участников</div>
+        </div>
     </div>
 
-    <div class="menu" id="nav-links">
-        <a href="#">Главная</a>
-        <a href="#">Проекты</a>
-        <a href="#">Кейсы</a>
-        <a href="#">Цены</a>
-    </div>
+    <!-- БЛОК: блогеры и заказчики -->
+    <section class="about fade-in">
+        <div class="text-block">
+            <h2>Мы объединяем <span>Блогеров</span><br>и заказчиков</h2>
+            <p>Вы получаете готовые предложения и начинаете работать сразу</p>
+            <ul class="benefits-list">
+                <li>Больше не нужно искать заказы</li>
+                <li>Экономите время на переговорах</li>
+                <li>Работаете с актуальными предложениями</li>
+            </ul>
+        </div>
+        <div class="cards-wrapper">
+            <div class="cards-container" id="cardsContainer">
+                <!-- ОДИН НЕРОВНЫЙ КРУГ (без линий внутри) -->
+                <div class="irregular-ring" id="irregularRing"></div>
+                <!-- КАРТОЧКИ ПО ДИАГОНАЛИ -->
+                <div class="card glass-card" id="cardBlogger">
+                    <p>Блогер</p>
+                    <img src="img/blogger.png" alt="Блогер">
+                </div>
+                <div class="card glass-card" id="cardCustomer">
+                    <p>Заказчик</p>
+                    <img src="img/customer.png" alt="Заказчик">
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
-    
-    <button class="btn join">Присоединиться</button>
-  </div>
-</header>
-
-<section class="hero fade-in">
-  <h1><span>Медиа</span>центр</h1>
-
-  <p>
-    Агрегатор коммерческих и бартерных заказов со всего рынка<br>
-    ежедневно собираем лучшие предложения и даем доступ участникам
-  </p>
-
-  <div class="hero-buttons">
-    <button class="btn neon">Получить доступ</button>
-    <button class="btn ghost">Узнать больше</button>
-  </div>
-</section>
-
-<section class="stats fade-in">
-  <div>4000+<span>Переданных проекта</span></div>
-  <div>15+<span>Новых проектов в неделю</span></div>
-  <div>250+<span>Постоянных заказчиков</span></div>
-  <div>16000+<span>Участников</span></div>
-</section>
-
-<section class="about fade-in">
-  <div class="text">
-    <h2>Мы объединяем <span>блогеров</span><br>и заказчиков</h2>
-
-    <p>Вы получаете готовые предложения и начинаете работать сразу</p>
-
-    <ul>
-      <li>Больше не нужно искать заказы</li>
-      <li>Экономите время на переговорах</li>
-      <li>Работаете с актуальными предложениями</li>
-    </ul>
-  </div>
-
-  <div class="cards fade-in">
-    <div class="card left">
-<p>Блогер</p>
-<img src="img/blogger.png" alt="blogger">
-</div>
-
-<div class="card right">
-<p>Заказчик</p>
-<img src="img/customer.png" alt="customer">
-</div>
-  </div>
-</section>
 
 <script src="script.js"></script>
 </body>
