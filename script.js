@@ -32,23 +32,22 @@ const burger = document.querySelector('#burger-menu');
 const nav = document.querySelector('.nav');
 const menuLinks = document.querySelectorAll('.menu a');
 
-// Функция переключения меню
-burger.addEventListener('click', () => {
-    // Просто переключаем класс active у родителя (.nav)
+// Открыть/закрыть
+burger.addEventListener('click', (e) => {
+    e.stopPropagation();
     nav.classList.toggle('active');
 });
 
-// Закрываем меню при клике на любую ссылку (удобно для лендингов)
+// Закрыть при клике на ссылку
 menuLinks.forEach(link => {
     link.addEventListener('click', () => {
         nav.classList.remove('active');
     });
 });
 
-// Дополнительно: закрытие меню при клике вне его области
+// Закрыть при клике в любое другое место
 document.addEventListener('click', (e) => {
-    const isClickInside = nav.contains(e.target);
-    if (!isClickInside && nav.classList.contains('active')) {
+    if (!nav.contains(e.target)) {
         nav.classList.remove('active');
     }
 });

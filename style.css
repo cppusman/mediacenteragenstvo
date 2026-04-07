@@ -386,80 +386,67 @@ body::after {
    ================== АДАПТИВ НА ТЕЛЕФОН ==================
    ======================================================== */
 @media (max-width: 768px) {
-    /* Контейнер навигации (шапка) */
-    .nav {
-        position: relative; /* Чтобы меню выпадало относительно шапки */
-        justify-content: space-between;
-        padding: 15px 20px;
-    }
-
-    /* Сама плашка с меню */
+    /* 1. Настройка выпадающей плашки */
     .menu {
         position: absolute;
-        top: 100%; /* Появляется сразу под шапкой */
+        top: 100%; /* Сразу под шапкой */
         left: 0;
         width: 100%;
-        background: rgba(0, 0, 0, 0.95); /* Темная плашка */
-        backdrop-filter: blur(10px); /* Эффект размытия */
-        
+        background: rgba(1, 1, 1, 0.95);
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 15px;
         padding: 20px 0;
+        gap: 20px;
         
-        /* Анимация появления (выезжает сверху вниз и проявляется) */
-        opacity: 0;
+        /* Анимация появления */
         visibility: hidden;
+        opacity: 0;
         transform: translateY(-10px);
-        transition: all 0.3s ease;
-        z-index: 100;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: 0.3s ease;
+        z-index: 1000;
     }
 
-    /* Когда нажали на бургер (добавлен класс active) */
     .nav.active .menu {
-        opacity: 1;
         visibility: visible;
+        opacity: 1;
         transform: translateY(0);
     }
 
-    /* Ссылки внутри плашки */
     .menu a {
         color: #fff !important;
-        font-size: 18px !important;
+        font-size: 20px !important;
         text-decoration: none;
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
     }
 
-    /* Секция About (текст и карточки) — делаем меньше */
+    /* 2. Уменьшаем текст "Мы объединяем..." */
     .about .text h2 {
-        font-size: 28px !important;
+        font-size: 26px !important; /* Делаем заголовок меньше */
         line-height: 1.2;
     }
 
-    .about .text p, .about .text li {
-        font-size: 15px !important;
+    .about .text p, 
+    .about .text li {
+        font-size: 15px !important; /* Уменьшаем основной текст */
+        line-height: 1.4;
     }
 
+    /* 3. Уменьшаем карточки Блогер/Заказчик */
     .cards {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
+        gap: 15px;
     }
 
     .card {
-        width: 90% !important; /* Карточки почти на всю ширину */
-        max-width: 300px;
+        width: 280px !important; 
         height: auto !important;
-        padding: 20px !important;
+        padding: 15px !important;
+    }
+
+    .card p {
+        font-size: 16px !important;
     }
 
     .card img {
         height: 50px !important;
-        width: auto;
     }
 }
