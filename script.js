@@ -33,24 +33,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('.nav');
 
     if (burger && nav) {
-        burger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            burger.classList.toggle('open');
+        // При клике на бургер добавляем/убираем класс active
+        burger.onclick = (e) => {
+            e.stopPropagation(); // Чтобы клик не улетал дальше
             nav.classList.toggle('active');
-        });
+        };
 
+        // Закрываем меню, если кликнули на любую ссылку внутри него
         document.querySelectorAll('.menu a').forEach(link => {
             link.addEventListener('click', () => {
                 nav.classList.remove('active');
-                burger.classList.remove('open');
             });
         });
 
-        document.addEventListener('click', (e) => {
-            if (nav.classList.contains('active') && !nav.contains(e.target)) {
+        // Закрываем меню, если кликнули в любое место сайта вне меню
+        document.onclick = (e) => {
+            if (!nav.contains(e.target) && nav.classList.contains('active')) {
                 nav.classList.remove('active');
-                burger.classList.remove('open');
             }
-        });
+        };
     }
 });
