@@ -28,26 +28,20 @@ window.addEventListener('load', () => {
     showOnScroll();
 });
 
-const burger = document.querySelector('#burger-menu');
-const nav = document.querySelector('.nav');
-const menuLinks = document.querySelectorAll('.menu a');
+document.addEventListener('DOMContentLoaded', () => {
+    const burger = document.querySelector('#burger-menu');
+    const nav = document.querySelector('.nav');
 
-// Открыть/закрыть
-burger.addEventListener('click', (e) => {
-    e.stopPropagation();
-    nav.classList.toggle('active');
-});
+    if (burger && nav) {
+        burger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nav.classList.toggle('active');
+            console.log('Клик по бургеру');
+        });
 
-// Закрыть при клике на ссылку
-menuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        nav.classList.remove('active');
-    });
-});
-
-// Закрыть при клике в любое другое место
-document.addEventListener('click', (e) => {
-    if (!nav.contains(e.target)) {
-        nav.classList.remove('active');
+        // Закрываем при клике на любую ссылку в меню
+        document.querySelectorAll('.menu a').forEach(link => {
+            link.addEventListener('click', () => nav.classList.remove('active'));
+        });
     }
 });
