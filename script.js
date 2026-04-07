@@ -28,28 +28,27 @@ window.addEventListener('load', () => {
     showOnScroll();
 });
 
-const burger = document.getElementById('burger-menu');
+const burger = document.querySelector('#burger-menu');
 const nav = document.querySelector('.nav');
 const menuLinks = document.querySelectorAll('.menu a');
 
-if (burger) {
-    burger.addEventListener('click', () => {
-        // Переключаем класс active: это и открывает меню, и превращает полоски в крестик
-        nav.classList.toggle('active');
-        
-        // Блокируем скролл страницы, когда меню открыто (чтобы "фигня" не дергалась)
-        if (nav.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'auto';
-        }
-    });
-}
+// Функция переключения меню
+burger.addEventListener('click', () => {
+    // Просто переключаем класс active у родителя (.nav)
+    nav.classList.toggle('active');
+});
 
-// Закрываем меню при клике на любую ссылку
+// Закрываем меню при клике на любую ссылку (удобно для лендингов)
 menuLinks.forEach(link => {
     link.addEventListener('click', () => {
         nav.classList.remove('active');
-        document.body.style.overflow = 'auto';
     });
+});
+
+// Дополнительно: закрытие меню при клике вне его области
+document.addEventListener('click', (e) => {
+    const isClickInside = nav.contains(e.target);
+    if (!isClickInside && nav.classList.contains('active')) {
+        nav.classList.remove('active');
+    }
 });
