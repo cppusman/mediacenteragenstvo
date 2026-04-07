@@ -386,46 +386,82 @@ body::after {
    ================== АДАПТИВ НА ТЕЛЕФОН ==================
    ======================================================== */
 @media (max-width: 768px) {
-    /* Фикс заголовка, чтобы не ломал ширину */
-    .hero h1 {
-        font-size: 38px !important;
+    /* Навигация и скрытие лишнего */
+    .nav {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 10px 20px !important;
+        position: relative !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .nav > a:not(.btn):not(.logo a), .nav ul {
+        display: none !important;
+    }
+    .nav .btn.join {
+        display: block !important;
+        margin-right: 15px !important;
     }
 
-    /* БУРГЕР: Теперь он точно будет виден */
+    /* Бургер */
     #burger-menu {
         display: flex !important;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30px;
-        height: 22px;
-        z-index: 2000;
-        cursor: pointer;
-    }
-    #burger-menu span {
-        height: 3px;
-        width: 100%;
-        background-color: #fff !important;
-        border-radius: 2px;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        width: 30px !important;
+        height: 20px !important;
+        z-index: 2000 !important;
+        cursor: pointer !important;
     }
 
-    /* СТАТИСТИКА: Теперь она листается */
+    /* Выпадающее меню */
+    .menu {
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        width: 100% !important;
+        background: rgba(0, 0, 0, 0.98) !important;
+        flex-direction: column !important;
+        padding: 20px 0 !important;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.3s ease;
+        z-index: 1500 !important;
+        display: flex !important;
+    }
+    .nav.active .menu {
+        visibility: visible;
+        opacity: 1;
+    }
+    .menu a {
+        display: block !important;
+        color: #fff !important;
+        padding: 15px !important;
+        text-align: center !important;
+        font-size: 20px !important;
+    }
+
+    /* Статистика */
     .stats {
         display: flex !important;
         flex-direction: row !important;
-        overflow-x: auto !important; /* Скролл пальцем */
+        overflow-x: auto !important;
+        white-space: nowrap !important;
         gap: 30px !important;
-        padding: 30px !important;
-        background: rgba(255, 255, 255, 0.2) !important; /* Стекло белее */
+        padding: 25px !important;
         width: 90% !important;
         margin: 20px auto !important;
-        white-space: nowrap !important;
+        background: rgba(255, 255, 255, 0.15) !important;
+        -webkit-overflow-scrolling: touch;
     }
-    .stats div { flex: 0 0 auto !important; }
+    .stats div {
+        flex: 0 0 auto !important;
+    }
 
-    /* КАРТОЧКИ: Текст сверху, карточки СТОЛБИКОМ */
+    /* Карточки */
     .about {
         flex-direction: column !important;
-        align-items: center !important;
         gap: 40px !important;
     }
     .cards {
@@ -434,36 +470,37 @@ body::after {
         align-items: center !important;
         gap: 80px !important;
         position: relative !important;
-        width: 100% !important;
+        margin-top: 40px !important;
     }
     .card {
+        width: 280px !important;
+        height: auto !important;
+        padding: 30px 20px !important;
         position: relative !important;
-        width: 260px !important;
-        height: 380px !important;
-        padding: 0 !important; /* Убираем падинги, чтобы картинка была на всю ширину */
-        overflow: hidden;
-        z-index: 2;
+        z-index: 2 !important;
     }
 
-    /* КАРТИНКИ: На всю карточку */
+    /* Изображения в карточках */
     .card img {
-        width: 100% !important;   /* На всю ширину */
-        height: 60% !important;    /* Занимает больше половины высоты */
-        object-fit: cover !important; /* Не растягивается, а заполняет */
+        width: 120px !important;
+        height: 120px !important;
+        object-fit: contain !important;
+        margin: 0 auto 15px auto !important;
+        display: block !important;
         position: static !important;
         transform: none !important;
     }
 
-    /* КРУГ: Соединяет вертикальный столбик */
+    /* Круг */
     .cards::before {
         content: "" !important;
         position: absolute !important;
         top: 50% !important;
         left: 50% !important;
         transform: translate(-50%, -50%) !important;
-        width: 340px !important;
-        height: 340px !important;
-        border: 4px solid #2a7fff !important;
+        width: 260px !important;
+        height: 260px !important;
+        border: 3px solid #2a7fff !important;
         border-radius: 50% !important;
         z-index: 1 !important;
     }

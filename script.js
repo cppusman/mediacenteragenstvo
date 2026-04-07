@@ -35,13 +35,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (burger && nav) {
         burger.addEventListener('click', (e) => {
             e.stopPropagation();
+            burger.classList.toggle('open');
             nav.classList.toggle('active');
-            console.log('Клик по бургеру');
         });
 
-        // Закрываем при клике на любую ссылку в меню
         document.querySelectorAll('.menu a').forEach(link => {
-            link.addEventListener('click', () => nav.classList.remove('active'));
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                burger.classList.remove('open');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (nav.classList.contains('active') && !nav.contains(e.target)) {
+                nav.classList.remove('active');
+                burger.classList.remove('open');
+            }
         });
     }
 });
