@@ -440,7 +440,7 @@ body::after {
     .card {
         position: static !important;
         width: 240px !important;  /* Сделали уже */
-        height: 320px !important; /* Сделали выше */
+        height: 820px !important; /* Сделали выше */
         padding: 30px 20px !important;
         display: flex;
         flex-direction: column;
